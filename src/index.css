@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .navbar {
+    @apply py-5 flex items-center max-w-2xl mx-auto border-b border-gray-200;
+  }
+
+  .home {
+    @apply max-w-2xl mx-auto my-10 p-5 border border-gray-200;
+  }
+
+  .blog-preview {
+    @apply py-4 px-6 my-5 border-b border-gray-200 hover:shadow-md;
+  }
+} 
