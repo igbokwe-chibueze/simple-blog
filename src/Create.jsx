@@ -5,19 +5,31 @@ const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
+
+  const [isPending, setIsPending] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, body, author };
 
-    fetch('http://localhost:8000/blogs/', {
+    setIsPending(true);
+
+    // Simulating a delay for demonstration purposes
+    setTimeout(() => {
+      // Handle form submission
+      fetch('http://localhost:8000/blogs/', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog)
     }).then(() => {
+      setIsPending(false);
       navigate('/');
     })
+    }, 2000); // Adjust the delay time as needed
+
+    
   }
 
   return (
@@ -48,8 +60,9 @@ const Create = () => {
           <option value="mario">mario</option>
           <option value="yoshi">yoshi</option>
         </select>
-        <button className="bg-pink-600 text-white border-0 py-2 px-4">
-          Add Blog
+
+        <button className={`bg-pink-600 text-white border-0 py-2 px-4 cursor-pointer ${isPending && 'opacity-50 cursor-not-allowed'}`}>
+          {!isPending ? 'Add Blog' : '...Processing'}
         </button>
       </form>
     </div>

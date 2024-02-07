@@ -30,7 +30,7 @@ const useFetch = (url) => {
           setError(err.message);
         }
       })
-    }, 1000);
+    }, 1000); // Simulating a delay for demonstration purposes
 
     // abort the fetch
     return () => abortCont.abort();
