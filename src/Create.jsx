@@ -61,7 +61,7 @@ const Create = () => {
           <option value="yoshi">yoshi</option>
         </select>
 
-        <button className={`bg-pink-600 text-white border-0 py-2 px-4 cursor-pointer ${isPending && 'opacity-50 cursor-not-allowed'}`}>
+        <button className={`bg-pink-600 text-white border-0 py-2 px-4 ${isPending && 'opacity-50 cursor-not-allowed'}`}>
           {!isPending ? 'Add Blog' : '...Processing'}
         </button>
       </form>
